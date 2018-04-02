@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F197BC62061E1AE0002EB5D /* PersistenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F197BC52061E1AE0002EB5D /* PersistenceModel.swift */; };
+		9F508BFF206318190055C427 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F508BFE206318190055C427 /* Settings.storyboard */; };
+		9F508C03206318BB0055C427 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F508C02206318BB0055C427 /* SettingsViewController.swift */; };
 		9F5B2F3E20615F02000BD017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B2F3D20615F02000BD017 /* AppDelegate.swift */; };
 		9F5B2F4020615F02000BD017 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B2F3F20615F02000BD017 /* ViewController.swift */; };
 		9F5B2F4320615F02000BD017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B2F4120615F02000BD017 /* Main.storyboard */; };
 		9F5B2F4520615F02000BD017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B2F4420615F02000BD017 /* Assets.xcassets */; };
 		9F5B2F4820615F02000BD017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B2F4620615F02000BD017 /* LaunchScreen.storyboard */; };
 		9F5B2F5320615F02000BD017 /* SwiftPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B2F5220615F02000BD017 /* SwiftPersistenceTests.swift */; };
+		9F5B2F5F20615FA7000BD017 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B2F5E20615FA7000BD017 /* UserDefaults.swift */; };
+		9F5B2F6120615FC1000BD017 /* FileReadWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B2F6020615FC1000BD017 /* FileReadWrite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F197BC52061E1AE0002EB5D /* PersistenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceModel.swift; sourceTree = "<group>"; };
+		9F508BFE206318190055C427 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		9F508C02206318BB0055C427 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9F5B2F3A20615F02000BD017 /* SwiftPersistence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPersistence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5B2F3D20615F02000BD017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F5B2F3F20615F02000BD017 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +44,8 @@
 		9F5B2F4E20615F02000BD017 /* SwiftPersistenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftPersistenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5B2F5220615F02000BD017 /* SwiftPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPersistenceTests.swift; sourceTree = "<group>"; };
 		9F5B2F5420615F02000BD017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F5B2F5E20615FA7000BD017 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		9F5B2F6020615FC1000BD017 /* FileReadWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReadWrite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F508BFD206318100055C427 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9F508BFE206318190055C427 /* Settings.storyboard */,
+				9F508C02206318BB0055C427 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9F508C00206318950055C427 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9F5B2F4120615F02000BD017 /* Main.storyboard */,
+				9F5B2F3F20615F02000BD017 /* ViewController.swift */,
+				9F197BC52061E1AE0002EB5D /* PersistenceModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9F508C012063189E0055C427 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				9F5B2F6020615FC1000BD017 /* FileReadWrite.swift */,
+				9F5B2F5E20615FA7000BD017 /* UserDefaults.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		9F5B2F3120615F02000BD017 = {
 			isa = PBXGroup;
 			children = (
@@ -77,12 +115,10 @@
 		9F5B2F3C20615F02000BD017 /* SwiftPersistence */ = {
 			isa = PBXGroup;
 			children = (
-				9F5B2F3D20615F02000BD017 /* AppDelegate.swift */,
-				9F5B2F3F20615F02000BD017 /* ViewController.swift */,
-				9F5B2F4120615F02000BD017 /* Main.storyboard */,
-				9F5B2F4420615F02000BD017 /* Assets.xcassets */,
-				9F5B2F4620615F02000BD017 /* LaunchScreen.storyboard */,
-				9F5B2F4920615F02000BD017 /* Info.plist */,
+				9F508C00206318950055C427 /* Main */,
+				9F508C012063189E0055C427 /* Persistence */,
+				9F508BFD206318100055C427 /* Settings */,
+				9F5B2F5D20615F6C000BD017 /* Supporting Files */,
 			);
 			path = SwiftPersistence;
 			sourceTree = "<group>";
@@ -94,6 +130,17 @@
 				9F5B2F5420615F02000BD017 /* Info.plist */,
 			);
 			path = SwiftPersistenceTests;
+			sourceTree = "<group>";
+		};
+		9F5B2F5D20615F6C000BD017 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F5B2F3D20615F02000BD017 /* AppDelegate.swift */,
+				9F5B2F4420615F02000BD017 /* Assets.xcassets */,
+				9F5B2F4620615F02000BD017 /* LaunchScreen.storyboard */,
+				9F5B2F4920615F02000BD017 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +229,7 @@
 				9F5B2F4820615F02000BD017 /* LaunchScreen.storyboard in Resources */,
 				9F5B2F4520615F02000BD017 /* Assets.xcassets in Resources */,
 				9F5B2F4320615F02000BD017 /* Main.storyboard in Resources */,
+				9F508BFF206318190055C427 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +248,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F5B2F4020615F02000BD017 /* ViewController.swift in Sources */,
+				9F197BC62061E1AE0002EB5D /* PersistenceModel.swift in Sources */,
+				9F5B2F6120615FC1000BD017 /* FileReadWrite.swift in Sources */,
 				9F5B2F3E20615F02000BD017 /* AppDelegate.swift in Sources */,
+				9F5B2F5F20615FA7000BD017 /* UserDefaults.swift in Sources */,
+				9F508C03206318BB0055C427 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,10 +406,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 557EJSX593;
-				INFOPLIST_FILE = SwiftPersistence/Info.plist;
+				DEVELOPMENT_TEAM = 537944W876;
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftPersistence/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.monsanto.field.SwiftPersistence;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyoo.SwiftPersistence;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -369,10 +421,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 557EJSX593;
-				INFOPLIST_FILE = SwiftPersistence/Info.plist;
+				DEVELOPMENT_TEAM = 537944W876;
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftPersistence/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.monsanto.field.SwiftPersistence;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyoo.SwiftPersistence;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
