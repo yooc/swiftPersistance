@@ -6,9 +6,12 @@ protocol PersistenceModelDelegate: class {
     func reloadData()
 }
 
-enum User: String {
-    case user1 = "user1"
-    case user2 = "user2"
+struct UserObject {
+    let name: String
+    
+    init(name: String) {
+        self.name = name
+    }
 }
 
 class PersistenceModel {
@@ -16,14 +19,16 @@ class PersistenceModel {
     
     private let persistence = Persistence()
     private let settingsDefaults = SettingDefaults()
-    private var currentUser: User
+    
+    var availableUsers = [UserObject]()
+    private(set) var currentUser: UserObject
     
     var lastRequestToSave: DispatchWorkItem?
     
     weak var persistenceModelDelegate: PersistenceModelDelegate?
     
     init() {
-        currentUser =  User(rawValue: settingsDefaults.valueFor(key: currentUserKey) ?? "") ?? .user1
+        currentUser =  UserObject(name: settingsDefaults.valueFor(key: currentUserKey) ?? "")
     }
     
     func save(text: String) {
@@ -32,7 +37,7 @@ class PersistenceModel {
         let saveChangesWorkItem = DispatchWorkItem { [weak self] in
             let appDataDictionary = ["noteText": text]
             
-            guard let currentUser = self?.currentUser.rawValue else { return }
+            guard let currentUser = self?.currentUser.name else { return }
             
             let result = self?.persistence.write(appDataDictionary: appDataDictionary, user: currentUser) ?? false
         
@@ -47,14 +52,22 @@ class PersistenceModel {
     }
     
     var persistedText: String? {
-        return persistence.read(for: currentUser.rawValue)?["noteText"] as? String
+        return persistence.read(for: currentUser.name)?["noteText"] as? String
     }
 }
 
 extension PersistenceModel: SettingsDelegate {
-    func selected(user: User) {
-        settingsDefaults.add(value: user.rawValue, forKey: currentUserKey)
+    func selected(user: UserObject) {
+        settingsDefaults.add(value: user.name, forKey: currentUserKey)
         currentUser = user
         persistenceModelDelegate?.reloadData()
+    }
+    
+    func addNewUser(user: UserObject) {
+        availableUsers.append(user)
+    }
+    
+    func deleteUser(index: Int) {
+        availableUsers.remove(at: index)
     }
 }

@@ -4,6 +4,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var saveStatusLabel: UILabel!
+    @IBOutlet weak var currentUserLabel: UILabel!
     
     let persistenceModel = PersistenceModel()
     
@@ -13,6 +14,7 @@ class ViewController: UIViewController {
         persistenceModel.persistenceModelDelegate = self
         noteTextView.delegate = self
         noteTextView.text = persistenceModel.persistedText
+        currentUserLabel.text = persistenceModel.currentUser.name
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
