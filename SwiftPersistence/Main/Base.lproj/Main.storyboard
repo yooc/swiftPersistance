@@ -35,7 +35,7 @@
                                 <rect key="frame" x="302" y="64" width="57" height="30"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
-                                    <segue destination="ZcI-EC-apz" kind="presentation" id="wnl-Ay-c8u"/>
+                                    <segue destination="ZcI-EC-apz" kind="show" id="wnl-Ay-c8u"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNb-Me-jVs">
@@ -44,10 +44,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-S6-9c0">
+                                <rect key="frame" x="7" y="64" width="137" height="30"/>
+                                <state key="normal" title="Delete Current User"/>
+                                <connections>
+                                    <action selector="deleteUserButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ScR-Xe-ufQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RNb-Me-jVs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="166" id="3vk-3l-yeV"/>
+                            <constraint firstItem="RNb-Me-jVs" firstAttribute="top" secondItem="6Nv-S6-9c0" secondAttribute="bottom" constant="76.5" id="72U-XG-FRr"/>
                             <constraint firstItem="RNb-Me-jVs" firstAttribute="top" secondItem="Gdj-AH-8O0" secondAttribute="bottom" constant="76.5" id="7DZ-xs-2Md"/>
                             <constraint firstItem="hXz-g5-cCd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="L3i-vd-6WC"/>
                             <constraint firstItem="Gdj-AH-8O0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mer-2T-EHH"/>
@@ -58,8 +66,10 @@
                             <constraint firstItem="hXz-g5-cCd" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="gyq-cd-T6y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hXz-g5-cCd" secondAttribute="bottom" constant="16" id="ise-8H-0rx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gdj-AH-8O0" secondAttribute="trailing" constant="16" id="p76-qB-zbK"/>
+                            <constraint firstItem="6Nv-S6-9c0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="puv-xY-t3b"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hXz-g5-cCd" secondAttribute="trailing" constant="16" id="t8c-jb-jKL"/>
                             <constraint firstItem="9nz-cR-NGT" firstAttribute="leading" secondItem="hXz-g5-cCd" secondAttribute="leading" id="uhk-QJ-fXV"/>
+                            <constraint firstItem="6Nv-S6-9c0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="7" id="vM2-66-kuh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -80,7 +90,7 @@
                 <viewControllerPlaceholder storyboardName="Settings" id="ZcI-EC-apz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdq-dk-zM3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1678" y="-219"/>
+            <point key="canvasLocation" x="1998" y="-57"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rZa-5b-8Ej">

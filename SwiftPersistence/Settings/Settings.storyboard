@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Storyboard Reference-->
+        <scene sceneID="Crn-Qe-E3c">
+            <objects>
+                <viewControllerPlaceholder id="iSp-Hd-tQN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZLw-Fl-LLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-607" y="135"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="25a-3p-N0Q">
             <objects>
@@ -19,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zaU-sY-fve">
-                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" id="1d7-DW-4Mf">
@@ -33,7 +41,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clk-Lx-f7s">
-                                <rect key="frame" x="283" y="10" width="82" height="20"/>
+                                <rect key="frame" x="283" y="20" width="82" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Add User"/>
                                 <connections>
@@ -44,22 +52,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qAP-KZ-RZn" firstAttribute="trailing" secondItem="zaU-sY-fve" secondAttribute="trailing" id="AKi-tA-lG9"/>
-                            <constraint firstItem="zaU-sY-fve" firstAttribute="top" secondItem="qAP-KZ-RZn" secondAttribute="top" constant="50" id="Mxn-pW-hHu"/>
+                            <constraint firstItem="zaU-sY-fve" firstAttribute="top" secondItem="clk-Lx-f7s" secondAttribute="bottom" constant="8" id="GMT-ZC-das"/>
                             <constraint firstItem="qAP-KZ-RZn" firstAttribute="bottom" secondItem="zaU-sY-fve" secondAttribute="bottom" id="QQx-2T-ic8"/>
                             <constraint firstItem="zaU-sY-fve" firstAttribute="leading" secondItem="qAP-KZ-RZn" secondAttribute="leading" id="QVy-6j-Ivi"/>
-                            <constraint firstItem="clk-Lx-f7s" firstAttribute="top" secondItem="zhj-2t-zbk" secondAttribute="top" constant="10" id="WXM-Wz-52H"/>
-                            <constraint firstItem="clk-Lx-f7s" firstAttribute="trailing" secondItem="qAP-KZ-RZn" secondAttribute="trailing" constant="-10" id="ghk-UI-29v"/>
-                            <constraint firstItem="zaU-sY-fve" firstAttribute="top" secondItem="clk-Lx-f7s" secondAttribute="bottom" constant="40" id="tVp-8A-Sgf"/>
+                            <constraint firstItem="clk-Lx-f7s" firstAttribute="top" secondItem="qAP-KZ-RZn" secondAttribute="top" id="bxs-iO-cCs"/>
+                            <constraint firstItem="qAP-KZ-RZn" firstAttribute="trailing" secondItem="clk-Lx-f7s" secondAttribute="trailing" constant="10" id="o7O-g8-ZPM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qAP-KZ-RZn"/>
                     </view>
+                    <navigationItem key="navigationItem" id="LXL-Wd-nmn"/>
                     <connections>
                         <outlet property="usersTableView" destination="zaU-sY-fve" id="IeZ-nd-qIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ir-qs-y5y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="317.60000000000002" y="152.47376311844079"/>
+            <point key="canvasLocation" x="656.79999999999995" y="152.47376311844079"/>
         </scene>
     </scenes>
 </document>

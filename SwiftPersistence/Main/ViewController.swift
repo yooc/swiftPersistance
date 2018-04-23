@@ -1,12 +1,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    let persistenceModel = PersistenceModel()
+    
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var saveStatusLabel: UILabel!
     @IBOutlet weak var currentUserLabel: UILabel!
     
-    let persistenceModel = PersistenceModel()
+    @IBAction func deleteUserButton(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Really delete user \(persistenceModel.currentUser)?", message: nil, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.persistenceModel.deleteUser(user: self.persistenceModel.currentUser)
+        }))
+        
+        self.present(alert, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,13 +24,14 @@ class ViewController: UIViewController {
         persistenceModel.persistenceModelDelegate = self
         noteTextView.delegate = self
         noteTextView.text = persistenceModel.persistedText
-        currentUserLabel.text = persistenceModel.currentUser.name
+        currentUserLabel.text = persistenceModel.currentUser
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let settingsViewController = segue.destination as? SettingsViewController else { return }
         
         settingsViewController.settingsDelegate = persistenceModel
+        settingsViewController.model = persistenceModel
     }
 }
 
@@ -28,7 +39,7 @@ extension ViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         saveStatusLabel.text = "Unsaved changes..."
         DispatchQueue.global().async {
-            self.persistenceModel.save(text: textView.text)
+            self.persistenceModel.saveUserText(text: textView.text)
         }
     }
 }
@@ -48,6 +59,7 @@ extension ViewController: PersistenceModelDelegate {
     
     func reloadData() {
         noteTextView.text = persistenceModel.persistedText
+        currentUserLabel.text = persistenceModel.currentUser
         saveStatusLabel.text = "No changes"
     }
 }

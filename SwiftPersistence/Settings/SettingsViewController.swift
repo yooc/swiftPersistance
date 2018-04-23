@@ -1,9 +1,9 @@
 import UIKit
 
 protocol SettingsDelegate: class {
-    func selected(user: UserObject)
-    func addNewUser(user: UserObject)
-    func deleteUser(index: Int)
+    func selected(user: String)
+    func addNewUser(user: String)
+    func deleteUser(user: String)
 }
 
 class SettingsViewController: UIViewController {
@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         usersTableView.dataSource = self
+        usersTableView.delegate = self
     }
     
     @IBAction func addUserAction(_ sender: UIButton) {
@@ -31,8 +32,14 @@ class SettingsViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             
             if let name = alert.textFields?.first?.text {
-                let userToAdd = UserObject.init(name: name)
-                self.model?.addNewUser(user: userToAdd)
+                let userToAdd = name
+                
+                DispatchQueue.global().async {
+                    self.model?.addNewUser(user: userToAdd)
+                    self.model?.saveAvailableUsers()
+                }
+                
+                self.usersTableView.reloadData()
             }
         }))
         
@@ -48,25 +55,24 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = usersTableView.dequeueReusableCell(withIdentifier: "userCell") else { return UITableViewCell() }
         
-        let userName = model?.availableUsers.element(at: indexPath.row)?.name ?? "Unable to get userName"
+        let userName = model?.availableUsers.element(at: indexPath.row) ?? "Unable to get userName"
         
         cell.textLabel?.text = userName
-        
+
         return cell
     }
 }
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedUser = model?.availableUsers.element(at: indexPath.row)?.name ?? "Unable to get selected user"
-        let alert = UIAlertController(title: "Really delete user \(selectedUser)", message: nil, preferredStyle: .alert)
+        let selectedUser = model?.availableUsers.element(at: indexPath.row) ?? "Unable to get selected user"
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            
-                self.model?.deleteUser(index: indexPath.row)
-        }))
+        let alert = UIAlertController(title: "User has been selected", message: nil, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
         self.present(alert, animated: true)
+        
+        settingsDelegate?.selected(user: selectedUser)
     }
 }
