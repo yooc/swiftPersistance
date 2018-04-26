@@ -94,6 +94,7 @@ struct Persistence {
         let fileName = "availableUsers-\(baseFileName)"
         
         let writeUrl = documentsDirectory.appendingPathComponent(fileName, isDirectory: false)
+        print("\(writeUrl)")
         
         guard let appData = try? JSONSerialization.data(withJSONObject: appDataDictionary, options: .prettyPrinted) else {
             print("Could not serialize dictionary to data")

@@ -18,6 +18,8 @@ class SettingsViewController: UIViewController {
         
         usersTableView.dataSource = self
         usersTableView.delegate = self
+        
+        model?.setAvailableUsers()
     }
     
     @IBAction func addUserAction(_ sender: UIButton) {
